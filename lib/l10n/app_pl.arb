@@ -1,0 +1,62 @@
+{
+  "appTitle": "Mój Sklep",
+  "productsTitle": "Produkty",
+  "cartTitle": "Koszyk",
+  "allCategory": "Wszystkie",
+  "addToCart": "Dodaj",
+  "addedToCart": "{name} dodano do koszyka",
+  "@addedToCart": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cartEmpty": "Koszyk jest pusty",
+  "itemsLabel": "Produktów: {count}",
+  "@itemsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalLabel": "Suma: {total}",
+  "@totalLabel": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "eachPrice": "{price} za sztukę",
+  "@eachPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "checkout": "Kup teraz",
+  "clearCart": "Wyczyść koszyk",
+  "orderPlacedTitle": "Zamówienie złożone",
+  "orderPlacedMessage": "Twoje zamówienie zostało pomyślnie złożone!",
+  "ok": "OK",
+  "settingsTab": "Ustawienia",
+  "languageLabel": "Język",
+  "selectLanguage": "Wybierz język",
+  "ukrainian": "Ukraiński",
+  "english": "Angielski",
+  "polish": "Polski",
+  "categoryPhone": "Telefon",
+  "categoryLaptop": "Laptop",
+  "categoryWatch": "Zegarek",
+  "itemsCount": "{count, plural, =0{Brak produktów} =1{1 produkt} few{{count} produkty} many{{count} produktów} other{{count} produktów}}",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

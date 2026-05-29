@@ -1,0 +1,62 @@
+{
+  "appTitle": "Мій магазин",
+  "productsTitle": "Товари",
+  "cartTitle": "Кошик",
+  "allCategory": "Усі",
+  "addToCart": "Додати",
+  "addedToCart": "{name} додано до кошика",
+  "@addedToCart": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cartEmpty": "Кошик порожній",
+  "itemsLabel": "Товарів: {count}",
+  "@itemsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalLabel": "Сума: {total}",
+  "@totalLabel": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "eachPrice": "{price} за штуку",
+  "@eachPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "checkout": "Оформити замовлення",
+  "clearCart": "Очистити кошик",
+  "orderPlacedTitle": "Замовлення оформлено",
+  "orderPlacedMessage": "Ваше замовлення успішно оформлено!",
+  "ok": "OK",
+  "settingsTab": "Налаштування",
+  "languageLabel": "Мова",
+  "selectLanguage": "Оберіть мову",
+  "ukrainian": "Українська",
+  "english": "Англійська",
+  "polish": "Польська",
+  "categoryPhone": "Телефон",
+  "categoryLaptop": "Ноутбук",
+  "categoryWatch": "Годинник",
+  "itemsCount": "{count, plural, =0{Немає товарів} =1{1 товар} few{{count} товари} many{{count} товарів} other{{count} товару}}",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

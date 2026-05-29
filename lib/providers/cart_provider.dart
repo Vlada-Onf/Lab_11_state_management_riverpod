@@ -1,6 +1,8 @@
 import 'dart:convert';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import '../models/cart_item.dart';
 import '../models/product.dart';
 
@@ -25,9 +27,7 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
 
   Future<void> _saveCart() async {
     final prefs = await SharedPreferences.getInstance();
-    final encoded = jsonEncode(
-      state.map((item) => item.toJson()).toList(),
-    );
+    final encoded = jsonEncode(state.map((item) => item.toJson()).toList());
     await prefs.setString(_cartKey, encoded);
   }
 

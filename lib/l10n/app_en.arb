@@ -1,0 +1,62 @@
+{
+  "appTitle": "My Store",
+  "productsTitle": "Products",
+  "cartTitle": "Shopping Cart",
+  "allCategory": "All",
+  "addToCart": "Add to Cart",
+  "addedToCart": "{name} added to cart",
+  "@addedToCart": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cartEmpty": "Cart is empty",
+  "itemsLabel": "Items: {count}",
+  "@itemsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalLabel": "Total: {total}",
+  "@totalLabel": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "eachPrice": "{price} each",
+  "@eachPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "checkout": "Checkout",
+  "clearCart": "Clear cart",
+  "orderPlacedTitle": "Order placed",
+  "orderPlacedMessage": "Your order has been successfully placed!",
+  "ok": "OK",
+  "settingsTab": "Settings",
+  "languageLabel": "Language",
+  "selectLanguage": "Select language",
+  "ukrainian": "Ukrainian",
+  "english": "English",
+  "polish": "Polish",
+  "categoryPhone": "Phone",
+  "categoryLaptop": "Laptop",
+  "categoryWatch": "Watch",
+  "itemsCount": "{count, plural, =0{No items} =1{1 item} other{{count} items}}",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

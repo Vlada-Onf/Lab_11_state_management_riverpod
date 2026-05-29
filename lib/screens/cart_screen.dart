@@ -1,32 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
+
+import '../l10n/app_localizations.dart';
 import '../providers/cart_provider.dart';
 
 class CartScreen extends ConsumerWidget {
   const CartScreen({super.key});
 
+  String formatPrice(BuildContext context, double price) {
+    final locale = Localizations.localeOf(context);
+
+    String symbol;
+    switch (locale.languageCode) {
+      case 'uk':
+        symbol = '₴';
+        break;
+      case 'pl':
+        symbol = 'zł';
+        break;
+      case 'en':
+      default:
+        symbol = '\$';
+    }
+
+    final format = NumberFormat.currency(
+      locale: locale.toString(),
+      symbol: symbol,
+      decimalDigits: 2,
+    );
+
+    return format.format(price);
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final cart = ref.watch(cartProvider);
     final total = ref.watch(cartTotalProvider);
+    final cartCount = ref.watch(cartCountProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Shopping Cart'),
+        title: Text(l10n.cartTitle),
         actions: [
           IconButton(
             icon: const Icon(Icons.delete_outline),
             onPressed: () async {
               await ref.read(cartProvider.notifier).clear();
             },
+            tooltip: l10n.clearCart,
           ),
         ],
       ),
       body: cart.isEmpty
-          ? const Center(
+          ? Center(
               child: Text(
-                'Cart is empty',
-                style: TextStyle(fontSize: 18),
+                l10n.cartEmpty,
+                style: const TextStyle(fontSize: 18),
               ),
             )
           : Column(
@@ -50,7 +81,9 @@ class CartScreen extends ConsumerWidget {
                           ),
                           title: Text('${product.name} x${item.quantity}'),
                           subtitle: Text(
-                            '\$${product.price.toStringAsFixed(2)} each',
+                            l10n.eachPrice(
+                              formatPrice(context, product.price),
+                            ),
                           ),
                           trailing: SizedBox(
                             width: 120,
@@ -58,7 +91,8 @@ class CartScreen extends ConsumerWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  icon: const Icon(Icons.remove_circle_outline),
+                                  icon:
+                                      const Icon(Icons.remove_circle_outline),
                                   onPressed: () async {
                                     await ref
                                         .read(cartProvider.notifier)
@@ -94,12 +128,12 @@ class CartScreen extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Items: ${ref.watch(cartCountProvider)}',
+                        l10n.itemsCount(cartCount),
                         style: const TextStyle(fontSize: 16),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Total: \$${total.toStringAsFixed(2)}',
+                        l10n.totalLabel(formatPrice(context, total)),
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -114,14 +148,12 @@ class CartScreen extends ConsumerWidget {
                             await showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: const Text('Order placed'),
-                                content: const Text(
-                                  'Your order has been successfully placed!',
-                                ),
+                                title: Text(l10n.orderPlacedTitle),
+                                content: Text(l10n.orderPlacedMessage),
                                 actions: [
                                   TextButton(
                                     onPressed: () => Navigator.pop(context),
-                                    child: const Text('OK'),
+                                    child: Text(l10n.ok),
                                   ),
                                 ],
                               ),
@@ -129,7 +161,7 @@ class CartScreen extends ConsumerWidget {
 
                             await ref.read(cartProvider.notifier).clear();
                           },
-                          child: const Text('Checkout'),
+                          child: Text(l10n.checkout),
                         ),
                       ),
                     ],
